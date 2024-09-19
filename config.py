@@ -57,7 +57,7 @@ def main():
     parser = argparse.ArgumentParser(description="生成 engine.cpp 文件")
     # 添加参数
     parser.add_argument("--problem", type=str, required=True, help="题目名称")
-    parser.add_argument("--gen", type=bool, required=False, help="指定为生成新solution")
+    parser.add_argument("--gen", action="store_true", required=False, help="指定为生成新solution")
     parser.add_argument("--sig", type=str, required=False, help="指定为生成新solution的函数签名")
     # parser.add_argument("--input", type=str, required=True, help="输入文件")
     # 解析命令行参数
