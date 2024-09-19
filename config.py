@@ -43,6 +43,14 @@ void HANDLE_OUTPUT(std::string output) {
 }
 
 """
+run_sh_template = \
+"""
+#!/bin/bash
+python3 config.py --problem=REPLACEME
+make
+./engine
+
+"""
 
 def main():
     # 创建解析器对象
@@ -66,6 +74,10 @@ def main():
                f.write(solution_template_sig.replace("REPLACEME", args.sig))
             else:
                 f.write(solution_template)
+        with open(f"./solutions/{args.problem}/run.sh", "w") as f:
+            f.write(run_sh_template.replace("REPLACEME", args.problem))
+        # set run.sh to have exectuable permission
+        os.chmod(f"./solutions/{args.problem}/run.sh", 0o755)
         return
     gen1 = "template/engine.cpp"
     gen1 = replacer(
