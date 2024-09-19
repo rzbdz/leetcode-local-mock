@@ -57,6 +57,7 @@ inline auto generate_input_tuples() {
 #define HANDLE_OUTPUT(output) \
     std::cout << output << std::endl;
 #define HANDLE_OUTPUT_PLACEHOLDER 
+#define HANDLE_INPUT(a)
 #endif
 //COMMENT_END
 
@@ -65,9 +66,14 @@ HANDLE_OUTPUT_PLACEHOLDER//REPLACEME
 int main(void) {
   Solution sol;
   auto inputs = generate_input_tuples();
+  printf("Leetcode Local Mocking Tester Suit v0.1\n");
+  printf("You Are Playing with: %s\n", "SOLUTION_PLACEHOLDER");
   for (auto &in_args : inputs) {
     auto res = std::apply(
         [&sol](auto &&...args) {
+#ifdef DO_HANDLE_INPUT
+          HANDLE_INPUT(std::forward<decltype(args)>(args)...);
+#endif
           return sol.TARGET_FUNCTION_PLACEHOLDER(
               std::forward<decltype(args)>(args)...);
         },
