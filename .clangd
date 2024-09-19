@@ -1,0 +1,9 @@
+CompileFlags:
+  Add: 
+    # 指定使用 libstdc++
+    - -stdlib=libstdc++
+    # 让 clangd 处理 <bits/stdc++.h>
+    - -I/usr/include/c++/11/  # 替换 X.X.X 为你的实际 GCC 版本
+    - -I/usr/include/x86_64-linux-gnu/c++/11/  # 同样替换为你的实际路径
+    - -I./solutions/
+    - -DDEV_CLANGD=1

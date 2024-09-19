@@ -1,0 +1,3 @@
+INIT_INPUTS(std::string);
+INPUT("abc");
+INPUT("bcd"); 
