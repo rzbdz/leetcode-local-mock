@@ -79,6 +79,11 @@ int main(void) {
         },
         in_args);
     HANDLE_OUTPUT(res);
+#ifdef DO_HANDLE_INPUT_POST
+    // Supports for not return value solution, which may require result
+    // be returned in place of the input arguments
+    HANDLE_INPUT_POST(std::forward<decltype(args)>(args)...);
+#endif
   }
   return 0;
 }
