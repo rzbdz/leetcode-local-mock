@@ -41,6 +41,15 @@ output_template = \
 void HANDLE_OUTPUT(std::string output) {
     std::cout<<"output: "<< output <<std::endl;
 }
+// #define DO_HANDLE_INPUT
+void HANDLE_INPUT(std::string input) {
+    std::cout << "input: " << input << std::endl;
+}
+
+// #define DO_HANDLE_INPUT_POST
+void HANDLE_INPUT_POST(std::string input) {
+    std::cout << "input: " << input << std::endl;
+}
 
 """
 run_sh_template = \
